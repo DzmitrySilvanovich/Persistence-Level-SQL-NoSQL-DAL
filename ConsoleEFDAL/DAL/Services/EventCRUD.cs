@@ -31,8 +31,7 @@ namespace DAL.Services
             using (ApplicationContext db = new ApplicationContext(_options))
             {
                 var events = db.Events.Include(e => e.EventSections).ThenInclude(es => es.EventSectionPrice)
-                    .Include(e => e.EventSections).ThenInclude(es => es.SectionSeats)
-                    .ToList();
+                    .Include(e => e.EventSections).ThenInclude(es => es.SectionSeats).ToList();
                 return events;
             }
         }
